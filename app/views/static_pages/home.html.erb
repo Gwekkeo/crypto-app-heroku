@@ -14,4 +14,10 @@
 
 </div>
 
+	<% if Crypto.last != nil %>
+	<h1>
+		La cryptomonnaie : <strong> <%= @dernier_demande.nom%> </strong> = <%= @dernier_demande.value %> 
+	</h1>
+	<% end %>
+
 <!-- https://coinmarketcap.com/fr/all/views/all/ -->

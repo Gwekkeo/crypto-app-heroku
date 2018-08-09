@@ -18,7 +18,7 @@ class StartScrap
 		page = Nokogiri::HTML(open(@addresse_du_site))
 		hash = {}
 
-# Le hash chope TOUTE les crypto et leur value
+		# Le hash chope TOUTE les crypto et leur value
 		if page
 		    monnaies = page.css('#currencies-all tbody tr')
 			monnaies.each{ |x|
@@ -30,7 +30,7 @@ class StartScrap
 			}
 		end
 
-# On retourne seulement la crypto demander par l'user
+		# On retourne seulement la crypto demander par l'user
 		hash.each do |name, price|
 			if name.downcase == nom_crypto_voulu.downcase
 				return {name => price["price"]}
@@ -43,8 +43,23 @@ class StartScrap
 	end
 
 
-	def save
-		puts "ENREGISTRE LE SCRAP EN BD - json"
+	def save(hash_a_enregistrer)
+		puts "--- Enregistre le scrap en BD (sqlite3) ---"
+
+		name = hash_a_enregistrer.keys[0]
+		val = hash_a_enregistrer.values[0]
+		puts "VALEUR VAUT : #{val} -> #{val.class}"
+
+		mon_info = Crypto.new(nom: name, value: val)
+		if mon_info.save
+			puts "-"*10
+			puts "yes :)"
+			puts "-"*10
+		else
+			puts "-"*10
+			puts "PROBLEME DE save"
+			puts "-"*10
+		end
 	end
 
 end

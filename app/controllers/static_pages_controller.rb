@@ -1,5 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
+  	if Crypto.last != nil
+	  	@dernier_demande = Crypto.last
+	  end
   end
 
   def search
@@ -10,6 +13,7 @@ class StaticPagesController < ApplicationController
 
   	mon_scrappeur = StartScrap.new(params[:site])
   	hash_crypto_find = mon_scrappeur.perform(params[:crypto])
+  	mon_scrappeur.save(hash_crypto_find)
 
   	puts "\tOn a trouver : #{hash_crypto_find}"
   	puts "\n"*4
