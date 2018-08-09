@@ -7,7 +7,7 @@
 		<input type="text" name="crypto" class="form-control">
 		
 		<label>Site où chercher:</label>
-		<input type="text" name="site" class="form-control">
+		<input type="text" name="site" class="form-control" value="https://coinmarketcap.com/fr/all/views/all/">
 
 		<input type="submit" name="Envoyer" value="Search">
 	</form>
@@ -16,7 +16,7 @@
 
 	<% if Crypto.last != nil %>
 	<h1>
-		La cryptomonnaie : <strong> <%= @dernier_demande.nom%> </strong> = <%= @dernier_demande.value %> 
+		La cryptomonnaie : <strong> <%= @ask.nom%> </strong> = <%= @ask.value %> 
 	</h1>
 	<% end %>
 

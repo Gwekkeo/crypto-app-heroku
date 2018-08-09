@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
   	if Crypto.last != nil
-	  	@dernier_demande = Crypto.last
+	  	@ask = Crypto.last
 	  end
   end
 
