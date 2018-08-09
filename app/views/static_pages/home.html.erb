@@ -1,0 +1,17 @@
+<div class="jumbotron">
+
+	<form method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+		<label>Nom crypto à chercher:</label>
+		<input type="text" name="crypto" class="form-control">
+		
+		<label>Site où chercher:</label>
+		<input type="text" name="site" class="form-control">
+
+		<input type="submit" name="Envoyer" value="Search">
+	</form>
+
+</div>
+
+<!-- https://coinmarketcap.com/fr/all/views/all/ -->
