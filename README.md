@@ -6,7 +6,7 @@
 $ git clone https://github.com/Gwekkeo/crypto-app-heroku.git
 ```
 ```
-$ cd secret-app
+$ cd crypto-app-heroku
 ```
 
 ## Etapes:
